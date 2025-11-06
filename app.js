@@ -75,6 +75,7 @@ function loadTasks() {
         });
         
         listItem.appendChild(taskSpan);
+        listItem.appendChild(deleteButton);
         taskList.appendChild(listItem);
     });
 }
