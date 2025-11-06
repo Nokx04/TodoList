@@ -72,6 +72,18 @@ function loadTasks() {
         // Événement pour marquer la tâche comme complétée
         taskSpan.addEventListener('click', function() {
             listItem.classList.toggle('completed');
+            saveTasks();
+        });
+        
+        // Créer le bouton de suppression
+        const deleteButton = document.createElement('button');
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-xmark';
+        deleteButton.appendChild(icon);
+        deleteButton.className = 'delete-btn';
+        deleteButton.addEventListener('click', function() {
+            taskList.removeChild(listItem);
+            saveTasks();
         });
         
         listItem.appendChild(taskSpan);
