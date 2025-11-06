@@ -1,28 +1,40 @@
+document.addEventListener('DOMContentLoaded', loadTasks);
+
 const addTaskButton = document.querySelector('#addTaskButton');
 const taskInput = document.querySelector('#taskInput');
 
 addTaskButton.addEventListener('click', addTask);
+
+
+deleteButton.addEventListener('click', function() {
+            taskList.removeChild(listItem);
+        });
+
 
 function addTask() {
     const taskText = taskInput.value.trim();
     if (taskText !== '') {
         const taskList = document.querySelector('#taskList');
         const listItem = document.createElement('li');
+        const deleteButton = document.createElement('button');
+        
         listItem.textContent = taskText;
+
+        // deleteTask
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-xmark';
+        deleteButton.appendChild(icon);
+        deleteButton.addEventListener('click', function() {
+            taskList.removeChild(listItem);
+        });
+        listItem.appendChild(deleteButton);
+
         taskList.appendChild(listItem);
         taskInput.value = '';
 
         saveTasks();
     }
 }
-
-
-// ---------------------------
-// 🔸 Partie ajoutée : LocalStorage
-// ---------------------------
-
-// Charger les tâches à l’ouverture de la page
-document.addEventListener('DOMContentLoaded', loadTasks);
 
 function saveTasks() {
     const taskList = document.querySelectorAll('#taskList li');
@@ -40,3 +52,4 @@ function loadTasks() {
         taskList.appendChild(listItem);
     });
 }
+
