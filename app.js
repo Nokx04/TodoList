@@ -19,11 +19,15 @@ function addTask() {
         const deleteButton = document.createElement('button');
         
         listItem.textContent = taskText;
+        const taskSpan = document.createElement('span');
+        taskSpan.textContent = taskText;
+        taskSpan.className = 'task-text';
 
         // deleteTask
         const icon = document.createElement('i');
         icon.className = 'fa-solid fa-xmark';
         deleteButton.appendChild(icon);
+        deleteButton.className = 'delete-btn';
         deleteButton.addEventListener('click', function() {
             taskList.removeChild(listItem);
         });
@@ -53,3 +57,17 @@ function loadTasks() {
     });
 }
 
+// Événement pour marquer la tâche comme complétée
+    taskSpan.addEventListener('click', function() {
+        listItem.classList.toggle('completed');
+    });
+    
+    listItem.appendChild(taskSpan);
+
+
+// Permettre d'ajouter une tâche avec la touche Entrée
+document.getElementById('taskInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        document.getElementById('addTaskButton').click();
+    }
+});
