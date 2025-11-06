@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=*, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="add">
-        <input type="text" id="taskInput" placeholder="Enter a new task">
-        <button id="addTaskButton">Add Task</button>
+    <div class="container">
+        <h1>Ma Liste de Tâches</h1>
+        <div class="add">
+            <input type="text" id="taskInput" placeholder="Entrez une nouvelle tâche">
+            <button id="addTaskButton">Ajouter</button>
+        </div>
+        <ul id="taskList"></ul>
     </div>
-    <ul id="taskList"></ul>
     <script src="app.js"></script>
 </body>
 </html>
